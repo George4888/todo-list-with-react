@@ -21,7 +21,7 @@ function FormInput() {
           required
           placeholder="Add task"
           value={todoName}
-          onChange={(e) => setTodoName(e.target.value.toLocaleLowerCase())}
+          onChange={(e) => setTodoName(e.target.value.toLowerCase())}
         />
         <button type="submit">Add</button>
       </form>
