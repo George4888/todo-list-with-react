@@ -1,24 +1,20 @@
 import "./App.css";
+import DataProvider from "./components/DataProvider";
 import FormInput from "./components/FormInput";
+import Info from "./components/Info";
 import List from "./components/List";
 
 function App() {
   return (
-    <div className="App">
-      <h1>ToDo list React</h1>
+    <DataProvider>
+      <div className="App">
+        <h1>ToDo list React</h1>
 
-      <FormInput />
-      <List />
-
-      <div className="row">
-        <label htmlFor="all">
-          <input type="checkbox" name="all" id="all" />
-          All
-        </label>
-        <p>You have 0 tasks to complete</p>
-        <button id="delete">Delete</button>
+        <FormInput />
+        <List />
+        <Info />
       </div>
-    </div>
+    </DataProvider>
   );
 }
 
