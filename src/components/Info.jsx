@@ -24,22 +24,29 @@ const Info = () => {
 
   return (
     <>
-      <div className="row">
-        <label htmlFor="all">
-          <input
-            type="checkbox"
-            name="all"
-            id="all"
-            onChange={handleCheckAll}
-            checked={checkAll}
-          />
-          All
-        </label>
-        <p>You have {todos.length} tasks to complete</p>
-        <button id="delete" onClick={deleteTodo}>
-          Delete
-        </button>
-      </div>
+      {todos.length === 0 ? (
+        <h2>Congratulations! No Tasks left To Do</h2>
+      ) : (
+        <div className="row">
+          <label htmlFor="all">
+            <input
+              type="checkbox"
+              name="all"
+              id="all"
+              onChange={handleCheckAll}
+              checked={checkAll}
+            />
+            All
+          </label>
+          <p>
+            You have {todos.filter((todo) => todo.complete === false).length}{" "}
+            tasks to complete
+          </p>
+          <button id="delete" onClick={deleteTodo}>
+            Delete
+          </button>
+        </div>
+      )}
     </>
   );
 };
