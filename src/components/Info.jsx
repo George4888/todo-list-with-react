@@ -14,11 +14,12 @@ const Info = () => {
     setCheckAll(!checkAll);
   };
 
+  const newTodosComplete = () => {
+    return todos.filter((todo) => todo.complete === false);
+  };
+
   const deleteTodo = () => {
-    const newTodos = todos.filter((todo) => {
-      return todo.complete === false;
-    });
-    setTodos(newTodos);
+    setTodos(newTodosComplete());
     setCheckAll(false);
   };
 
@@ -38,10 +39,7 @@ const Info = () => {
             />
             All
           </label>
-          <p>
-            You have {todos.filter((todo) => todo.complete === false).length}{" "}
-            tasks to complete
-          </p>
+          <p>You have {newTodosComplete().length} tasks to complete</p>
           <button id="delete" onClick={deleteTodo}>
             Delete
           </button>
